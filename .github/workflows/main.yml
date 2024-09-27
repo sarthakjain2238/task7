@@ -22,7 +22,7 @@ jobs:
     - name: Set ECR Repository URL
       run: |
         echo "ECR_REPOSITORY_URL=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY_NAME }}" >> $GITHUB_ENV
-
+ 
     - name: Log in to Amazon ECR 
       run: |
         aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ env.ECR_REPOSITORY_URL }}
